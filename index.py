@@ -1,6 +1,6 @@
 import time
 import random
-verision = "Aplha 0.0.4"
+verision = "Aplha 0.0.5"
 print("©AfterDoor 2021.")
 time.sleep(3)
 print("After Door Inc. Представляет")
