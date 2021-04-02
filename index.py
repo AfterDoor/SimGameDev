@@ -1,6 +1,6 @@
 import time
 import random
-verision = "Aplha 0.0.5"
+verision = "patch 0.0.5.2"
 print("©AfterDoor 2021.")
 time.sleep(3)
 print("After Door Inc. Представляет")
@@ -69,6 +69,7 @@ lerntvideographic01limit = 0
 timerlerntgraph01 = -1
 timercredit01 = 1
 timercreaditlimit01 = 0
+creditgaslimit01 = 0
 
 while start != "Да":
 	start = input("Начать игру?")
@@ -168,12 +169,19 @@ while Exit01 != "Да":
 	if timerlerntgraph01 == 0:
 		print("Обучение созданию графики закончено!")
 		lerntvideographic01 = 1
-	if money <= 0:
-		if timercreaditlimit01 <= 0:
-			timercredit01 += 6
-			timercreaditlimit01 += 1
-		print("У тебя кредит!Если ты не вернеш денги в прежнее состояние за" + str(timercredit01) + " то твоя игра закончиться!")
-	if timercredit01 <= 0:
+	if money >= 1:
+		if creditgaslimit01  == 0:
+			timercredit01 += 1
+			timercreaditlimit01 = 0
+			creditgaslimit01 = 1
+			print("Ты успешно погасил кредит!")
+	if day >= 0:
+		if money <= 1:
+			if timercreaditlimit01 == 0:
+				timercredit01 += 6
+				timercreaditlimit01 += 1
+				print("У тебя кредит!Если ты не вернеш денги в прежнее состояние за" + str(timercredit01) + " то твоя игра закончиться!")
+	if timercredit01 == 0:
 		print("Твое время истекло!Ты не смог погасить кредит игра закрываеться!")
 		Exit01 = "Да"
 	entershop01 = input("Войти в Магазин?")
@@ -262,7 +270,8 @@ while Exit01 != "Да":
 		a = 10
 	if nextday == "Да":
 		timerlerntgraph01 -= 1
-		timercredit01 -= 1
+		if timercreaditlimit01 == 1:
+			timercredit01 -= 1
 		daydownload01 += random.choice(z)
 		Gamedownload01 += reklamalvl01
 		Gamedownload01 += reklamalvl02
