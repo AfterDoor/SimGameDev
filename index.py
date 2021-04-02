@@ -74,13 +74,9 @@ while start != "Да":
 	start = input("Начать игру?")
 	if start == "Да":
 		print("Тогда поехали!")
-	elif start == "да":
-		print("Тогда поехали!")
-	elif start == "даа":
-		print("Тогда поехали!")
-	elif start == "Даа":
-		print("Тогда поехали!")
 	elif start == 0:
+		options = input("Настройки?")
+	else :
 		options = input("Настройки?")
 	if options == "Да":
 		print("Настройки")
